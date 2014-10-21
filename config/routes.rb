@@ -1,5 +1,9 @@
 Codeup::Application.routes.draw do
 
+  devise_for :users
+
+  devise_for :clients
+  
   get "welcome/about"
 
   root to: 'welcome#index'
