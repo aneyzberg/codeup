@@ -26,6 +26,12 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :role %><br />
+    <%= f.select :role, User::ROLES, {include_blank: true}, {class: "whatever"} %>
+  </div>
+
+
+  <div class="form-group">
     <%= f.submit "Sign up", class: 'btn btn-success' %>
   </div>
 

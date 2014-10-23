@@ -1,0 +1,33 @@
+<h1>Listing user_devs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Bio</th>
+      <th>Developer type</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_devs.each do |user_dev| %>
+      <tr>
+        <td><%= user_dev.username %></td>
+        <td><%= user_dev.bio %></td>
+        <td><%= user_dev.developer_type %></td>
+        <td><%= user_dev.user %></td>
+        <td><%= link_to 'Show', user_dev %></td>
+        <td><%= link_to 'Edit', edit_user_dev_path(user_dev) %></td>
+        <td><%= link_to 'Destroy', user_dev, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User dev', new_user_dev_path %>

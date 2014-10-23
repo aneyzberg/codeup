@@ -1,8 +1,11 @@
 Codeup::Application.routes.draw do
 
+  resources :user_devs
+
+  resources :projects
+
   devise_for :users
 
-  devise_for :clients
   
   get "welcome/about"
 

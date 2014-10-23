@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018055942) do
+ActiveRecord::Schema.define(version: 20141023231356) do
+
+  create_table "projects", force: true do |t|
+    t.date     "due_date"
+    t.float    "payment_amount"
+    t.string   "name"
+    t.text     "description"
+    t.string   "contact_info"
+    t.string   "developer_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+
+  create_table "user_devs", force: true do |t|
+    t.string   "username"
+    t.text     "bio"
+    t.string   "developer_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_devs", ["user_id"], name: "index_user_devs_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -31,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141018055942) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

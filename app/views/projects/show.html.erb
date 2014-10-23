@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @project.due_date %>
+</p>
+
+<p>
+  <strong>Payment amount:</strong>
+  <%= @project.payment_amount %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Contact info:</strong>
+  <%= @project.contact_info %>
+</p>
+
+<p>
+  <strong>Developer type:</strong>
+  <%= @project.developer_type %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
