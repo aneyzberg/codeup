@@ -1,8 +1,15 @@
 Codeup::Application.routes.draw do
 
-  resources :user_devs
+  resources :user_preferences
+
+  #get "user_projects/create"
+  #get "user_projects/destroy"
+
+  resources :user_projects, only: [:create, :destroy]
 
   resources :projects
+
+  #resources :user_projects
 
   devise_for :users
 

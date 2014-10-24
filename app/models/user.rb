@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :projects
+
   has_many :user_devs
+  has_many :user_projects
+  has_many :dev_projects, class_name:"Project", through: :user_projects
 
 
   ROLES = ["client", "developer"]  # User::ROLES
