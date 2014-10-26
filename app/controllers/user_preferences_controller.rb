@@ -28,7 +28,7 @@ class UserPreferencesController < ApplicationController
 
     respond_to do |format|
       if @user_preference.save
-        format.html { redirect_to @user_preference, notice: 'User preference was successfully created.' }
+        format.html { redirect_to @user_preference, notice: 'User profile was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_preference }
       else
         format.html { render action: 'new' }

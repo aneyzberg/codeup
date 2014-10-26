@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :projects
 
-  has_many :user_devs
+  has_many :user_preferences
+  
   has_many :user_projects
   has_many :dev_projects, class_name:"Project", through: :user_projects
 

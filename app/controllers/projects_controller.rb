@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    #@project = current_user.projects
   end
 
   # GET /projects/new
@@ -29,11 +30,15 @@ class ProjectsController < ApplicationController
     @project = Project.create(project_params)
     @project.user = current_user
 
+    user = @project.user
 
 
 
     respond_to do |format|
       if @project.save
+
+    UserMailer.run(user)
+
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
       else
