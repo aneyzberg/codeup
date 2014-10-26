@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user_preference.username %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user_preference.bio %>
+</p>
+
+<p>
+  <strong>Developer type:</strong>
+  <%= @user_preference.developer_type %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_preference.user %>
+</p>
+
+<%= link_to 'Edit', edit_user_preference_path(@user_preference) %> |
+<%= link_to 'Back', user_preferences_path %>

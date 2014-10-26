@@ -30,7 +30,7 @@
   <%= @project.developer_type %>
 </p>
 
-
+<%= link_to 'Sign up for project', user_projects_path(project_id: @project.id), method: :post, class: 'btn-btn-success' %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

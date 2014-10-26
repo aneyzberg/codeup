@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
 
-    user.client? ? new_project_path : new_user_dev_path
+    user.client? ? new_project_path : new_user_preference_path
   end
   
 end
