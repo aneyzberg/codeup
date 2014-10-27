@@ -36,9 +36,9 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
 
-      user = @project.user
+      #user = @project.user
 
-    UserMailer.run(user)
+    #UserMailer.run(user)
 
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
