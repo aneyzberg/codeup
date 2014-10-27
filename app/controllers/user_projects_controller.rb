@@ -6,7 +6,9 @@ class UserProjectsController < ApplicationController
 
     if @user_project.save
 
-      #deliver email
+      user = @user_project
+
+    UserMailer.run(user)
 
     flash[:notice] = "You are signed up for your project"
     redirect_to projects_path
