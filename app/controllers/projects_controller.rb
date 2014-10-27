@@ -30,12 +30,13 @@ class ProjectsController < ApplicationController
     @project = Project.create(project_params)
     @project.user = current_user
 
-    user = @project.user
 
 
 
     respond_to do |format|
       if @project.save
+
+      user = @project.user
 
     UserMailer.run(user)
 
