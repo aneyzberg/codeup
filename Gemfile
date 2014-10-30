@@ -43,13 +43,10 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'pundit'
 
-gem 'twitter-bootstrap-rails'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
- #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
