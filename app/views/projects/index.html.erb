@@ -1,4 +1,4 @@
-<h1>Listing projects</h1>
+<h1>Projects</h1>
 
 <table>
   <thead>
@@ -24,9 +24,20 @@
         <td><%= project.description %></td>
         <td><%= project.contact_info %></td>
         <td><%= project.developer_type %></td>
+
+        <% if policy(project).show? %>
         <td><%= link_to 'Show', project %></td>
+        <% end %>
+  
+    
+        <% if policy(project).edit? %>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <% end %>
+     
+        <% if policy(project).destroy? %>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+   
       </tr>
     <% end %>
   </tbody>

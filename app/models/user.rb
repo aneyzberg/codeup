@@ -21,5 +21,13 @@ class User < ActiveRecord::Base
   def developer?
     role =="developer"
   end  
+
+  def admin?
+    role == "admin"
+  end
+
+   def role? (baserole)
+    baserole == role
+  end
     
 end

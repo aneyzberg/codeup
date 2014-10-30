@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" align= "center" >
+<h1>
+  <strong>
+  <%= @project.name %></strong>
+</h1>
+
 <p>
   <strong>Due date:</strong>
   <%= @project.due_date %>
@@ -10,10 +18,10 @@
   <%= @project.payment_amount %>
 </p>
 
-<p>
+<!--<p>
   <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+  <#%= @project.name %>
+</p>-->
 
 <p>
   <strong>Description:</strong>
@@ -25,12 +33,25 @@
   <%= @project.contact_info %>
 </p>
 
+
 <p>
   <strong>Developer type:</strong>
   <%= @project.developer_type %>
 </p>
 
+<% if policy(UserProject.new).create? %>
 <%= link_to 'Sign up for project', user_projects_path(project_id: @project.id), method: :post, class: 'btn-btn-success' %>
+<% end %><br />
 
+
+<% if policy(@project).edit? %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
+<% end %>
+
+
 <%= link_to 'Back', projects_path %>
+
+  </div>
+ </div>
+</div>
+

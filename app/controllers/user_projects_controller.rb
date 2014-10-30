@@ -3,12 +3,14 @@ class UserProjectsController < ApplicationController
 
     @user_project = current_user.user_projects.create(project_id: params[:project_id])
 
+    authorize @user_project
+
 
     if @user_project.save
 
       user = @user_project
 
-    UserMailer.run(user)
+      #UserMailer.run(user)
 
     flash[:notice] = "You are signed up for your project"
     redirect_to projects_path

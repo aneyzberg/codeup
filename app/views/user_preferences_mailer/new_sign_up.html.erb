@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1> Thank you for signing up for "<%= @project.name %>" </h1>
+
+    <p> The client contact info is the following <%= @project.contact_info %> </p>
+
+    <p> <%= link_to "View project", project_url(@project) %>
+
+  </body>
+</html>
+

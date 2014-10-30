@@ -20,5 +20,7 @@
   <%= @user_preference.user %>
 </p>
 
+<% if policy(@user_preference).edit? %>
 <%= link_to 'Edit', edit_user_preference_path(@user_preference) %> |
+<% end %>
 <%= link_to 'Back', user_preferences_path %>
