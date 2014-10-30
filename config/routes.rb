@@ -2,6 +2,7 @@ Codeup::Application.routes.draw do
 
   resources :user_preferences
 
+
   #post "user_projects" => 'user_projects#create'
   #get "user_projects/destroy" => 'user_projects#destroy'
 

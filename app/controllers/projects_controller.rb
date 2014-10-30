@@ -5,21 +5,29 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    authorize @projects
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project = Project.find(params[:id])
+    authorize @project
     #@project = current_user.projects
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    authorize @project
   end
 
   # GET /projects/1/edit
   def edit
+
+    @project = Project.find(params[:id])
+    authorize @project
+
   end
 
   # POST /projects
@@ -30,6 +38,7 @@ class ProjectsController < ApplicationController
     @project = Project.create(project_params)
     @project.user = current_user
 
+    authorize @project
 
 
 
@@ -67,6 +76,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.json
   def destroy
     @project.destroy
+    authorize @project
     respond_to do |format|
       format.html { redirect_to projects_url }
       format.json { head :no_content }
