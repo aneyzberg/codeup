@@ -8,7 +8,20 @@
 
     <p> The client contact info is the following <%= @project.contact_info %> </p>
 
-    <p> <%= link_to "View project", project_url(@project) %>
+    <p> <%= link_to "View project", project_url(@project) %></p>
+
+    <p> The following people are on your development team </p>
+        <table>
+             <% @project_users.each do |user| %>
+          <tr>
+            <td>
+              <%= user.email %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+
+
 
   </body>
 </html>
