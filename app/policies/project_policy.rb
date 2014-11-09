@@ -5,7 +5,7 @@ class ProjectPolicy < ApplicationPolicy
     end
 
   def create?
-   user.client? || user.admin?
+   user.client? || user.admin? 
   end
 
   def new?

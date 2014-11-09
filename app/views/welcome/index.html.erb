@@ -1,11 +1,22 @@
-<br />
-<div class="cover-container">
-<div class= "jumbotron" align="center">
-  <h1>Code Up</h1>
-  <h4> Projects for new developers posted daily!</h4>
-  <h4> Work with other junior devs on freelance projects...build your portfolio and help non-profits build their sites! </h4>
-  <%= link_to "Post a project", new_project_path %>
-  <%= link_to "Sign up for a project", projects_path %>
+<div class="site-wrapper">
+  <div class="container cover-page">
+      <div class= "jumbotron" align="center">
+        <h1>Code Up</h1>
+          <h3> Projects for new developers posted daily!</h3>
+            <p class="lead"> Work with other junior devs on freelance projects<br />
+              Build your portfolio<br />
+              Help non-profits build their sites! </p>
+           <p class="lead">
+       
 
-</div>
+            <% if policy(Project.new).create? %>
+            <%= link_to "Post a project", new_project_path, class: "btn btn-lg btn-primary" %>
+            <% end %>
 
+            <% if policy(UserProject.new).create? %>
+            <%= link_to "Sign up for a project", projects_path, class: "btn btn-lg btn-primary" %><br /></h3>
+            <% end %>
+            <br />
+          </div>
+        </div>
+    </div>
