@@ -43,6 +43,10 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'pundit'
 
+gem 'carrierwave'
+
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
