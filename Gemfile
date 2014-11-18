@@ -45,6 +45,8 @@ gem 'pundit'
 
 gem 'carrierwave'
 
+gem 'faker'
+
 
 
 group :doc do

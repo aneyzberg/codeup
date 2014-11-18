@@ -1,7 +1,75 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
+
+5.times do
+  user = User.new(
+    name:        Faker::Name.name,
+    email:       Faker::Internet.email, 
+    password:    Faker::Lorem.characters(10),
+    role: "client"
+    )
+  user.skip_confirmation!
+  user.save
+end
+users = User.all
+
+5.times do
+  user = User.new(
+    name:        Faker::Name.name,
+    email:       Faker::Internet.email, 
+    password:    Faker::Lorem.characters(10),
+    role: "developer"
+    )
+  user.skip_confirmation!
+  user.save
+end
+users = User.all
+
+
+10.times do
+  project = Project.create(
+    name: Faker::Lorem.words, 
+    due_date: Faker::Date.forward(13),
+    payment_amount: Faker::Number.digit,
+    description: Faker::Internet.url,
+    contact_info: Faker::Internet.email,
+    developer_type: "client"
+)
+  project.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+end
+projects = Project.all
+
+
+admin = User.new(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
+)
+admin.skip_confirmation!
+admin.save
+
+
+# Create a moderator
+developer = User.new(
+  name:     'Developer User',
+  email:    'developer@example.com', 
+  password: 'devhelloworld',
+  role:     'developer'
+)
+developer.skip_confirmation!
+developer.save
+
+
+# Create a member
+client = User.new(
+  name:     'Client User',
+  email:    'client@example.com',
+  password: 'clienthelloworld',
+  role: 'client'
+)
+client.skip_confirmation!
+client.save
+
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{Project.count} projects created"
