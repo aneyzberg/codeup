@@ -14,6 +14,12 @@ group :production do
 end
 
 
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -43,10 +49,14 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'pundit'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
+gem 'carrierwave'
+
+gem 'faker'
+
+gem 'pry'
+
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

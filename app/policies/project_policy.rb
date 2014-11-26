@@ -1,11 +1,12 @@
 class ProjectPolicy < ApplicationPolicy
 
+
   def index?
       true
     end
 
   def create?
-   user.client? || user.admin? 
+    user.present? && (user.client? || user.admin?)
   end
 
   def new?

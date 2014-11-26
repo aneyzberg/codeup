@@ -8,19 +8,22 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ 
  *= require_tree .
  *= require_self 
+
  */
 
 
 @import "bootstrap";
 
 .user-info {
-  margin-top: 9px;
+  margin-top: 5px;
 }
 
 .nav {
   margin-top: 5px;
+  text-color: #000000;
 }
 
 
@@ -68,6 +71,7 @@ body {
   height: 100%;
   background-color: #A9A9A9;
 }
+
 
 .table-color{
   background-color: #7FFFD4

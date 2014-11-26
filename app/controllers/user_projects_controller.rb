@@ -1,4 +1,6 @@
 class UserProjectsController < ApplicationController
+  respond_to :html, :js
+
   def create
     project = Project.find(params[:project_id])
     

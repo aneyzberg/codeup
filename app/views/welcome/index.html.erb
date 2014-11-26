@@ -1,3 +1,5 @@
+<% content_for :body_class, "welcome" %>
+
 <div class="site-wrapper">
   <div class="container cover-page">
       <div class= "jumbotron" align="center">
@@ -6,7 +8,10 @@
             <p class="lead"> Work with other junior devs on freelance projects<br />
               Build your portfolio<br />
               Help non-profits build their sites! </p>
-           <p class="lead">
+
+          <% if policy(Application.new).create? == false %>
+          <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+          <% end %>
        
 
             <% if policy(Project.new).create? %>
