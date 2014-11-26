@@ -32,7 +32,7 @@ users = User.all
     payment_amount: Faker::Number.digit,
     description: Faker::Internet.url,
     contact_info: Faker::Internet.email,
-    developer_type: "client"
+    developer_type: Faker::Lorem.word
 )
   project.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
 end

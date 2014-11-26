@@ -5,6 +5,6 @@ class UserProjectPolicy < ApplicationPolicy
   end
 
   def new?
-    user.developer? || user.admin?
+    user.present? && (user.developer? || user.admin?)
   end
 end

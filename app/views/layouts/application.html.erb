@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= yield :body_class  %>">
    <div class="container">
     <ul class="nav nav-tabs nav-justified">
       <li><%= link_to "CodeUp", root_path %></li>
