@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+respond_to :html, :js
+
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects

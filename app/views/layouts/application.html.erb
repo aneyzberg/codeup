@@ -11,6 +11,7 @@
     <ul class="nav nav-tabs nav-justified">
       <li><%= link_to "CodeUp", root_path %></li>
       <li><%= link_to "About", welcome_about_path %></li>
+      <li><%= link_to "Projects", projects_path %></li>
      
       <div class="pull-right user-info">
         <% if current_user %>
@@ -39,7 +40,10 @@
         </div>
       <% end %>
 
-
+  <div class="alert alert-success ajax" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <span id="ajax_message"></span>
+  </div>
 
 <%= yield %>
 </div>

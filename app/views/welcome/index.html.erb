@@ -9,17 +9,18 @@
               Build your portfolio<br />
               Help non-profits build their sites! </p>
 
-          <% if policy(Application.new).create? == false %>
-          <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-          <% end %>
+          <%# if policy(Application.new).create? == false %>
+          <%#= link_to "Sign up now", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+          <%# end %>
        
 
             <% if policy(Project.new).create? %>
-            <%= link_to "Post a project", new_project_path, class: "btn btn-lg btn-primary" %>
-            <% end %>
-
-            <% if policy(UserProject.new).create? %>
-            <%= link_to "Sign up for a project", projects_path, class: "btn btn-lg btn-primary" %><br /></h3>
+              <%= link_to "Post a project", new_project_path, class: "btn btn-lg btn-primary" %>
+            <% elsif  policy(UserProject.new).create? %>
+              <%= link_to "Sign up for a project", projects_path, class: "btn btn-lg btn-primary" %><br /></h3>
+            <% else %>
+              <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+              <%= link_to "Sign In", new_user_session_path, class: "btn btn-lg btn-primary" %>
             <% end %>
             <br />
           </div>
