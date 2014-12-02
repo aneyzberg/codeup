@@ -48,7 +48,7 @@
 
 
 <% if policy(UserProject.new).create? %>
-<%= link_to 'Sign up for project', user_projects_path(project_id: @project.id), method: :post, class: 'btn-btn-success' %>
+<%= link_to 'Sign up for project', user_projects_path(project_id: @project.id), id: "new_user_project",  method: :post, remote: :true, class: 'btn-btn-success' %>
 <% end %><br />
 
 

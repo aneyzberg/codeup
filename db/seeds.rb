@@ -26,14 +26,15 @@ users = User.all
 
 
 10.times do
-  project = Project.create(
-    name: Faker::Lorem.words, 
+  project = Project.new(
+    name: Faker::Lorem.sentence, 
     due_date: Faker::Date.forward(13),
     payment_amount: Faker::Number.digit,
     description: Faker::Internet.url,
     contact_info: Faker::Internet.email,
     developer_type: Faker::Lorem.word
 )
+  #Rails.logger.info ">>>>>>>>>>>>>>>>>> project: #{project.inspect}"
   project.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
 end
 projects = Project.all

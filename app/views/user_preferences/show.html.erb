@@ -23,4 +23,9 @@
 <% if policy(@user_preference).edit? %>
 <%= link_to 'Edit', edit_user_preference_path(@user_preference) %> |
 <% end %>
-<%= link_to 'Back', user_preferences_path %>
+<%= link_to 'Back', user_preferences_path %><br />
+
+<% if policy(UserProject.new).create? %>
+ <%= link_to "View Projects", projects_path, class: "btn btn--md btn-primary" %>
+ <% end %>
+

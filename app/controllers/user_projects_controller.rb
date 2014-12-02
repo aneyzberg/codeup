@@ -18,7 +18,12 @@ class UserProjectsController < ApplicationController
         #UserMailer.run(user)
 
         flash[:notice] = "You are signed up for your project"
-        redirect_to projects_path
+
+        respond_to do |format|
+          format.html {redirect_to projects_path}
+          format.js { @ajax_message = "You signed up for your project" }
+            #flash[:notice] = "You are signed up for your project"
+        end
 
       else
         flash[:notice] = "There was a problem signing up for this project"

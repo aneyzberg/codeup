@@ -1,5 +1,5 @@
 <div class="container-fluid cover-container">
-<h1 align="center">User Preferences</h1>
+<h1 align="center">My Preferences</h1>
 
 <table class="table table-hover">
   <thead>
@@ -7,7 +7,7 @@
       <th>Username</th>
       <th>Bio</th>
       <th>Developer type</th>
-      <th>User</th>
+      <!--<th>User</th>-->
       <th></th>
       <th></th>
       <th></th>
@@ -20,10 +20,10 @@
         <td><%= user_preference.username %></td>
         <td><%= user_preference.bio %></td>
         <td><%= user_preference.developer_type %></td>
-        <td><%= user_preference.user %></td>
+        <td><% user_preference.user %></td>
         <td><%= link_to 'Show', user_preference %></td>
         <td><%= link_to 'Edit', edit_user_preference_path(user_preference) %></td>
-        <td><%= link_to 'Destroy', user_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', user_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,7 +1,7 @@
 class UserPreferencePolicy < ApplicationPolicy
 
 def index?
-  true
+  user.present? || user.admin?
 end
 
 def new?

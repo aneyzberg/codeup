@@ -4,7 +4,9 @@ class UserPreferencesController < ApplicationController
   # GET /user_preferences
   # GET /user_preferences.json
   def index
-    @user_preferences = UserPreference.all
+    @user_preferences = UserPreference.where(user_id: current_user.id)
+    #find_by(user_id: current_user.id)
+    authorize @user_preferences
   end
 
   # GET /user_preferences/1
@@ -15,6 +17,8 @@ class UserPreferencesController < ApplicationController
   # GET /user_preferences/new
   def new
     @user_preference = UserPreference.new
+    authorize @user_preference
+
   end
 
   # GET /user_preferences/1/edit
@@ -25,11 +29,15 @@ class UserPreferencesController < ApplicationController
   # POST /user_preferences.json
   def create
     @user_preference = UserPreference.new(user_preference_params)
+    @user_preference.user = current_user
+
+    authorize @user_preference
 
     respond_to do |format|
       if @user_preference.save
         format.html { redirect_to @user_preference, notice: 'User profile was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_preference }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @user_preference.errors, status: :unprocessable_entity }
@@ -71,4 +79,5 @@ class UserPreferencesController < ApplicationController
     def user_preference_params
       params.require(:user_preference).permit(:username, :bio, :developer_type, :user_id)
     end
+
 end
