@@ -1,0 +1,4 @@
+/* line 1, /home/vagrant/code/codeup/app/assets/stylesheets/welcome.css.scss */
+body.welcome {
+  background-image: url(/assets/welcome-image.jpg);
+}
