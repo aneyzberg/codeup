@@ -18,13 +18,13 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def edit?
-    create?
+    destroy?
   end
 
 
 
   def destroy?
-    create?
+    user.present? && (record.user == user || user.admin?)
   end
 
 end
