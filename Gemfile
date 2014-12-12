@@ -19,6 +19,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem  'launchy'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
