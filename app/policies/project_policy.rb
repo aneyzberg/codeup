@@ -21,6 +21,7 @@ class ProjectPolicy < ApplicationPolicy
     destroy?
   end
 
+  
 
 
   def destroy?
