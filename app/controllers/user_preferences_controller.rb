@@ -12,6 +12,7 @@ class UserPreferencesController < ApplicationController
   # GET /user_preferences/1
   # GET /user_preferences/1.json
   def show
+
   end
 
   # GET /user_preferences/new
@@ -39,6 +40,8 @@ class UserPreferencesController < ApplicationController
         format.json { render action: 'show', status: :created, location: @user_preference }
         format.js
       else
+
+        
         format.html { render action: 'new' }
         format.json { render json: @user_preference.errors, status: :unprocessable_entity }
       end

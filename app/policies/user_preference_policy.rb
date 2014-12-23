@@ -9,13 +9,13 @@ def new?
 end
 
 def create?
-  user.developer?
+  user.developer? 
 end
 
 def edit?
   create?
 end
 
-
 end
+
 

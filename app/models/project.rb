@@ -6,7 +6,9 @@ class Project < ActiveRecord::Base
   has_many :user_projects
   has_many :users, through: :user_projects
 
-  default_scope { order('rank DESC')}
+  default_scope { order('created_at DESC')}
+
+
 
   MAX_AVAILABLE = 10   # Project::MAX_AVAILABLE
 
