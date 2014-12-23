@@ -31,4 +31,6 @@
 
 <br>
 
-<b><%= link_to 'New User preference', new_user_preference_path %></b><br /><br />
+<b><% if policy(UserPreference.new).create? %>
+  <%= link_to 'New User preference', new_user_preference_path %></b><br /><br />
+  <% end %>

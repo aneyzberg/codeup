@@ -8,6 +8,7 @@ respond_to :html, :js
   def index
     @projects = Project.all
     authorize @projects
+    @project = Project.new
   end
 
   # GET /projects/1
@@ -22,6 +23,7 @@ respond_to :html, :js
   def new
      @project = Project.new
     authorize @project
+
   end
 
   # GET /projects/1/edit
@@ -51,6 +53,7 @@ respond_to :html, :js
 
     #UserMailer.run(user)
 
+        format.js
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
       else

@@ -3,10 +3,10 @@
 
 <h1 align="center">Projects</h1>
   <% if policy(Project.new).create? %>
-<%= link_to ' + Create New Project', new_project_path, class: "btn btn-md btn-primary" %>
+<%= link_to ' + Create New Project', new_project_path, id: "project_new", remote: true, class: "btn btn-md btn-primary" %>
 <% end %> 
 
-<table class="table table-hover table-color" align="center">
+<table class="table table-hover table-color" align="center" id="current_projects">
   <thead>
     <tr>
       <th>Due date</th>
@@ -22,35 +22,10 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.due_date %></td>
-        <td><%= project.payment_amount %></td>
-        <td><%= project.name %></td>
-        <td><%= project.description %></td>
-        <td><%= project.contact_info %></td>
-        <td><%= project.developer_type %></td>
-
-        <% if policy(project).show? %>
-        <td><%= link_to 'Show', project %></td>
-        <% end %>
-  
-    
-        <% if policy(project).edit? %>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <% end %>
-     
-        <% if policy(project).destroy? %>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-   
-      </tr>
-    <% end %>
+    <%= render @projects %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-
-
-</div>

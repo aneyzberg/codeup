@@ -15,12 +15,18 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_up_path_for(user)
-    user.client? ?  client_path : other_path
+    user.client? ?  client_path : new_user_preference_path
   end
 
   def after_sign_in_path_for(user)
 
-    user.client? ? new_project_path : new_user_preference_path
+    if user.client? || (user.developer? && user.user_preferences.exists? )
+      projects_path 
+    elsif user.developer? &&  !user.user_preferences.exists? 
+      new_user_preference_path  
+    else
+      root_path
+    end
   end
   
 end
